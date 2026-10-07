@@ -1,0 +1,29 @@
+name: JARVIS-VLSI Multi-Track CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  simulation-verification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog Toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog gtkwave
+
+      - name: Set up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Execute Self-Checking RTL Simulation Suite
+        run: |
+          python run_sim.py

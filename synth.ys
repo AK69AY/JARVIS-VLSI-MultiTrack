@@ -1,0 +1,8 @@
+read_verilog bitnet_ternary_pe.v
+hierarchy -top bitnet_ternary_pe
+proc; opt; fsm; opt; memory; opt
+techmap; opt
+abc -g gates
+opt
+stat
+write_verilog -attr2comment gate_level_netlist.v
