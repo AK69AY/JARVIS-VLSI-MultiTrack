@@ -1,0 +1,14 @@
+# Build artifacts
+*.vvp
+*.vcd
+*.out
+
+# LaTeX artifacts
+*.aux
+*.log
+*.toc
+*.synctex.gz
+
+# Python
+__pycache__/
+*.pyc
